@@ -5,6 +5,12 @@
   <title>PopCat Clicker - Official Website</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="icon.png" />
+
+  <!-- Google Font -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap">
+
   <style>
     :root {
       --bg: #050011;
@@ -12,6 +18,7 @@
       --accent1: #ff00cc;
       --accent2: #7f5dff;
       --accent3: #00f5ff;
+      --accent4: #ffc94b;
       --text-main: #ffffff;
       --text-muted: #b0a4ff;
       --border-radius: 18px;
@@ -26,7 +33,7 @@
     }
 
     body {
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+      font-family: "Poppins", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
         sans-serif;
       background: radial-gradient(circle at top, #1a0b3a 0, #050011 45%, #020006 100%);
       color: var(--text-main);
@@ -42,41 +49,102 @@
       text-decoration: underline;
     }
 
-    /* ===== Header ===== */
+    /* ===== Header / Navbar ===== */
     header {
-      padding: 20px 16px 28px;
-      text-align: center;
-      background:
-        linear-gradient(90deg, rgba(255, 0, 204, 0.55), rgba(0, 245, 255, 0.45)),
-        radial-gradient(circle at top, rgba(255, 255, 255, 0.25), transparent 60%);
-      box-shadow: var(--shadow-neon);
       position: sticky;
       top: 0;
-      z-index: 10;
+      z-index: 20;
+      background:
+        linear-gradient(90deg, rgba(255, 0, 204, 0.6), rgba(0, 245, 255, 0.4)),
+        rgba(5, 0, 25, 0.92);
       backdrop-filter: blur(14px);
+      box-shadow: var(--shadow-neon);
     }
 
-    .header-title {
-      font-size: 2.1rem;
-      font-weight: 800;
+    .nav-inner {
+      max-width: 1150px;
+      margin: 0 auto;
+      padding: 10px 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .brand-icon {
+      width: 38px;
+      height: 38px;
+      border-radius: 14px;
+      overflow: hidden;
+      background: radial-gradient(circle at 30% 20%, #ffffff, #ffe6ff 35%, #ff00cc 80%);
+      box-shadow: 0 0 18px rgba(255, 0, 204, 0.9);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .brand-icon img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .brand-text-main {
+      font-size: 1.1rem;
+      font-weight: 700;
       letter-spacing: 0.08em;
       text-transform: uppercase;
-      text-shadow:
-        0 0 10px rgba(255, 255, 255, 0.6),
-        0 0 20px rgba(255, 0, 204, 0.9);
     }
 
-    .header-subtitle {
-      margin-top: 8px;
-      font-size: 0.95rem;
+    .brand-text-sub {
+      font-size: 0.78rem;
       color: var(--text-muted);
     }
 
-    /* ===== Layout ===== */
+    nav {
+      display: none;
+    }
+
+    @media (min-width: 780px) {
+      nav {
+        display: flex;
+        gap: 10px;
+        font-size: 0.85rem;
+      }
+
+      nav a {
+        padding: 6px 12px;
+        border-radius: 999px;
+        border: 1px solid transparent;
+        color: var(--text-muted);
+        cursor: pointer;
+        transition: background 0.2s, border-color 0.2s, color 0.2s;
+      }
+
+      nav a:hover {
+        border-color: rgba(255, 255, 255, 0.35);
+        color: #ffffff;
+        background: rgba(7, 2, 40, 0.9);
+      }
+
+      nav a.active {
+        border-color: rgba(255, 255, 255, 0.9);
+        color: #ffffff;
+        background: rgba(2, 0, 18, 0.95);
+      }
+    }
+
+    /* ===== Global Layout ===== */
     .page-wrapper {
-      max-width: 1100px;
+      max-width: 1150px;
       margin: 0 auto;
-      padding: 24px 16px 40px;
+      padding: 20px 16px 40px;
     }
 
     .section-card {
@@ -88,6 +156,7 @@
       margin-bottom: 22px;
       position: relative;
       overflow: hidden;
+      scroll-margin-top: 90px;
     }
 
     .section-card::before {
@@ -106,22 +175,38 @@
       z-index: 1;
     }
 
+    h1, h2, h3 {
+      font-weight: 700;
+    }
+
     h2 {
-      font-size: 1.3rem;
+      font-size: 1.35rem;
       margin-bottom: 10px;
       color: #ffe6ff;
       text-shadow: 0 0 10px rgba(255, 0, 204, 0.4);
     }
 
+    h3 {
+      font-size: 1rem;
+      margin-bottom: 6px;
+      color: #ffdfff;
+    }
+
     p {
-      font-size: 0.98rem;
+      font-size: 0.97rem;
       margin-bottom: 8px;
       color: #e6ddff;
+    }
+
+    .highlight {
+      color: var(--accent3);
+      font-weight: 600;
     }
 
     ul {
       list-style: none;
       margin-top: 8px;
+      margin-bottom: 4px;
     }
 
     ul li {
@@ -135,6 +220,81 @@
       color: var(--accent3);
     }
 
+    /* ===== Hero / Banner ===== */
+    .hero {
+      display: grid;
+      grid-template-columns: 1.2fr;
+      gap: 16px;
+      align-items: center;
+    }
+
+    @media (min-width: 900px) {
+      .hero {
+        grid-template-columns: 1.2fr 1fr;
+      }
+    }
+
+    .hero-text-title {
+      font-size: 2.1rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      text-shadow:
+        0 0 12px rgba(255, 255, 255, 0.6),
+        0 0 24px rgba(255, 0, 204, 0.9);
+    }
+
+    .hero-text-sub {
+      margin-top: 10px;
+      font-size: 1rem;
+      color: var(--text-muted);
+    }
+
+    .hero-badges {
+      margin-top: 12px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .hero-badge {
+      font-size: 0.78rem;
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: rgba(5, 0, 30, 0.8);
+      border: 1px solid rgba(255, 255, 255, 0.22);
+      color: var(--accent4);
+    }
+
+    .hero-banner {
+      position: relative;
+      border-radius: 20px;
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      background: radial-gradient(circle at top, #2a1460, #060012);
+      box-shadow: var(--shadow-neon);
+      min-height: 220px;
+    }
+
+    .hero-banner img {
+      width: 100%;
+      height: 100%;
+      max-height: 320px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .hero-banner-note {
+      position: absolute;
+      bottom: 8px;
+      right: 10px;
+      font-size: 0.75rem;
+      background: rgba(5, 0, 25, 0.7);
+      padding: 4px 8px;
+      border-radius: 999px;
+      color: var(--text-muted);
+      border: 1px solid rgba(255, 255, 255, 0.25);
+    }
+
     /* ===== Media + Gallery Section ===== */
     .media-layout {
       display: flex;
@@ -142,7 +302,7 @@
       gap: 18px;
     }
 
-    @media (min-width: 800px) {
+    @media (min-width: 900px) {
       .media-layout {
         flex-direction: row;
       }
@@ -162,6 +322,7 @@
       font-size: 1rem;
       margin-bottom: 8px;
       color: #ffddff;
+      font-weight: 600;
     }
 
     /* ===== YouTube Embed ===== */
@@ -207,25 +368,61 @@
       filter: brightness(1.06);
     }
 
-    /* ===== Image Slider ===== */
+    /* ===== iPhone Mockup Slider ===== */
     .slider-wrapper {
       position: relative;
-      overflow: hidden;
-      border-radius: 14px;
-      border: 1px solid rgba(255, 255, 255, 0.16);
+      border-radius: 24px;
+      padding: 18px 18px 22px;
       background: radial-gradient(circle at top, #1c0d3f, #060013);
       box-shadow: var(--shadow-neon);
-      min-height: 220px;
+    }
+
+    /* phone frame */
+    .phone-frame {
+      position: relative;
+      margin: 0 auto;
+      width: 100%;
+      max-width: 260px;
+      aspect-ratio: 9 / 19;
+      border-radius: 38px;
+      padding: 14px 10px;
+      background: radial-gradient(circle at 20% 0, #ffffff, #999, #111);
+      box-shadow:
+        0 0 0 3px #111,
+        0 0 0 7px #444,
+        0 0 25px rgba(0, 0, 0, 0.9);
+    }
+
+    .phone-screen {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      border-radius: 28px;
+      overflow: hidden;
+      background: #000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* notch */
+    .phone-notch {
+      position: absolute;
+      top: 6px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 40%;
+      height: 12px;
+      border-radius: 0 0 10px 10px;
+      background: #000;
+      z-index: 2;
     }
 
     .slider-image {
       display: block;
       width: 100%;
       height: 100%;
-      max-height: 320px;
-      object-fit: contain;
-      padding: 10px;
-      filter: drop-shadow(0 0 18px rgba(0, 245, 255, 0.5));
+      object-fit: cover;
       transition: opacity 0.3s ease, transform 0.35s ease;
     }
 
@@ -233,8 +430,8 @@
       position: absolute;
       top: 50%;
       transform: translateY(-50%);
-      width: 38px;
-      height: 38px;
+      width: 34px;
+      height: 34px;
       border-radius: 50%;
       border: 1px solid rgba(255, 255, 255, 0.7);
       background: radial-gradient(circle at 30% 30%, #ffffff, #ff00cc);
@@ -252,19 +449,17 @@
     }
 
     .slider-nav-btn.left {
-      left: 10px;
+      left: 12px;
     }
 
     .slider-nav-btn.right {
-      right: 10px;
+      right: 12px;
     }
 
     .slider-dots {
-      position: absolute;
-      bottom: 8px;
-      left: 50%;
-      transform: translateX(-50%);
+      margin-top: 10px;
       display: flex;
+      justify-content: center;
       gap: 6px;
     }
 
@@ -282,15 +477,70 @@
     }
 
     .slider-counter {
-      position: absolute;
-      top: 8px;
-      right: 10px;
-      font-size: 0.75rem;
+      margin-top: 6px;
+      font-size: 0.78rem;
+      text-align: center;
       color: #e6ddff;
-      background: rgba(5, 0, 30, 0.75);
-      padding: 3px 8px;
+    }
+
+    .slider-toolbar {
+      margin-top: 8px;
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+      font-size: 0.78rem;
+    }
+
+    .btn-small {
+      padding: 4px 10px;
       border-radius: 999px;
-      border: 1px solid rgba(255, 255, 255, 0.25);
+      border: 1px solid rgba(255, 255, 255, 0.35);
+      background: rgba(5, 0, 25, 0.9);
+      color: #fff;
+      cursor: pointer;
+    }
+
+    .btn-small:hover {
+      background: rgba(15, 0, 40, 1);
+    }
+
+    /* ===== Lightbox (full-screen image) ===== */
+    .lightbox-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.85);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 40;
+    }
+
+    .lightbox-overlay.active {
+      display: flex;
+    }
+
+    .lightbox-img {
+      max-width: 96vw;
+      max-height: 96vh;
+      border-radius: 16px;
+      box-shadow: 0 0 30px rgba(0, 0, 0, 0.9);
+    }
+
+    .lightbox-close {
+      position: fixed;
+      top: 14px;
+      right: 16px;
+      border: none;
+      background: rgba(0, 0, 0, 0.7);
+      color: #fff;
+      font-size: 1.6rem;
+      padding: 4px 10px;
+      border-radius: 999px;
+      cursor: pointer;
+    }
+
+    .lightbox-close:hover {
+      background: rgba(30, 30, 30, 0.95);
     }
 
     /* ===== Footer ===== */
@@ -309,36 +559,79 @@
 <body>
 
 <header>
-  <div class="header-title">PopCat Clicker</div>
-  <div class="header-subtitle">Cute neon cat clicker game – click, collect & have fun!</div>
+  <div class="nav-inner">
+    <div class="brand">
+      <div class="brand-icon">
+        <img src="icon.png" alt="PopCat icon">
+      </div>
+      <div>
+        <div class="brand-text-main">POPCAT CLICKER</div>
+        <div class="brand-text-sub">Cute neon cat clicker game</div>
+      </div>
+    </div>
+    <nav>
+      <a href="#hero" class="active">Home</a>
+      <a href="#about">About</a>
+      <a href="#media">Gameplay</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
 </header>
 
 <div class="page-wrapper">
 
-  <!-- About Section -->
-  <section class="section-card">
+  <!-- HERO -->
+  <section class="section-card" id="hero">
+    <div class="section-inner hero">
+      <div>
+        <div class="hero-text-title">PopCat Clicker</div>
+        <p class="hero-text-sub">
+          Tap the yarn ball to collect drops and exchange them for coins in the shop.
+Smooth effects and simple, satisfying clicker gameplay.
+        </p>
+        <div class="hero-badges">
+          <div class="hero-badge">Relaxing Casual</div>
+          <div class="hero-badge">No Login Needed</div>
+          <div class="hero-badge">Kid-Friendly</div>
+          <div class="hero-badge">Offline Gameplay</div>
+        </div>
+      </div>
+
+      <div class="hero-banner">
+        <!-- حط هنا البانر بتاعك مثلاً 1200x420 باسم banner.jpg -->
+        <img src="banner.png" alt="PopCat Clicker banner">
+        <div class="hero-banner-note">Game art preview</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="section-card" id="about">
     <div class="section-inner">
       <h2>About the Game</h2>
       <p><strong>PopCat Clicker</strong> is a colorful casual game for kids and families.</p>
       <p>Click the cute cat to make shiny items pop out, collect them, and turn them into coins inside the game!</p>
 
-      <h2>Main Features</h2>
+      <h3>Main Features</h3>
       <ul>
-        <li>Simple and relaxing clicker gameplay</li>
-        <li>Neon cat graphics and juicy visual effects</li>
-        <li>Collect potions, gems, stars and more</li>
-        <li>Exchange items for coins inside the shop</li>
-        <li>Child-friendly design, no violence</li>
+        <li>Simple and relaxing tap-to-play clicker gameplay</li>
+        <li>Neon cat graphics and juicy particle effects</li>
+        <li>Collect potions, gems, paws, stars and more</li>
+        <li>Exchange items for coins inside the jewellery shop</li>
+        <li>Child-friendly design, no violence or chat</li>
       </ul>
 
-      <h2>Contact & Privacy</h2>
-      <p>Support email: <strong>luxelace79@gmail.com</strong></p>
-      <p>Privacy Policy: <a href="https://luceluce141.github.io/popcat-privacy-policy/" target="_blank">view here</a></p>
+      <h3>Privacy & Safety</h3>
+      <p>
+        The game is built with <span class="highlight">privacy first</span>: no accounts, no personal data collection,
+        and only child-appropriate ads. You can read the full privacy policy here:
+        <a href="https://luceluce141.github.io/popcat-privacy-policy/" target="_blank">Privacy Policy</a>.
+      </p>
     </div>
   </section>
 
-  <!-- Media Section: YouTube + Gallery -->
-  <section class="section-card">
+  <!-- MEDIA: VIDEO + SCREENSHOTS -->
+  <section class="section-card" id="media">
     <div class="section-inner">
       <div class="media-layout">
 
@@ -346,7 +639,6 @@
         <div class="card-block">
           <div class="card-title">Gameplay Preview</div>
           <div class="video-wrapper">
-            <!-- غيّر YOUR_VIDEO_ID_HERE إلى كود الفيديو -->
             <iframe
               src="https://www.youtube.com/embed/bh7faKAeVhY"
               title="PopCat Clicker Gameplay"
@@ -361,17 +653,29 @@
           </a>
         </div>
 
-        <!-- Right: Image Slider -->
+        <!-- Right: iPhone Mockup Slider -->
         <div class="card-block">
           <div class="card-title">Screenshots</div>
+
           <div class="slider-wrapper">
-            <img id="slider-image" class="slider-image" src="1.png" alt="PopCat Clicker screenshot">
+            <div class="phone-frame">
+              <div class="phone-notch"></div>
+              <div class="phone-screen">
+                <img id="slider-image" class="slider-image" src="1.png" alt="PopCat Clicker screenshot">
+              </div>
+            </div>
 
             <div class="slider-nav-btn left" onclick="prevImage()">❮</div>
             <div class="slider-nav-btn right" onclick="nextImage()">❯</div>
 
-            <div class="slider-counter" id="slider-counter">1 / 6</div>
             <div class="slider-dots" id="slider-dots"></div>
+            <div class="slider-counter" id="slider-counter">1 / 12</div>
+
+            <div class="slider-toolbar">
+              <button class="btn-small" onclick="openLightbox()">
+                🔍 View full image
+              </button>
+            </div>
           </div>
         </div>
 
@@ -379,36 +683,59 @@
     </div>
   </section>
 
+  <!-- CONTACT -->
+  <section class="section-card" id="contact">
+    <div class="section-inner">
+      <h2>Contact & Support</h2>
+      <p>
+        Do you have feedback, found a bug, or want to talk about publishing?
+        Feel free to reach out:
+      </p>
+      <p>
+        <strong>Email:</strong> <a href="mailto:luxelace79@gmail.com">luxelace79@gmail.com</a>
+      </p>
+      <p>
+        We usually reply as soon as possible and are happy to cooperate with
+        store reviewers and partners.
+      </p>
+    </div>
+  </section>
+
 </div>
 
 <footer>
-  © 2024 PopCat Clicker – All Rights Reserved.
+  © 2025 PopCat Clicker – All Rights Reserved.
 </footer>
 
+<!-- LIGHTBOX -->
+<div class="lightbox-overlay" id="lightbox">
+  <img class="lightbox-img" id="lightbox-img" src="1.png" alt="PopCat Clicker full screenshot">
+  <button class="lightbox-close" onclick="closeLightbox()">×</button>
+</div>
+
 <script>
+  // ===== Navbar active state =====
+  const navLinks = document.querySelectorAll("nav a");
+  navLinks.forEach(link => {
+    link.addEventListener("click", () => {
+      navLinks.forEach(l => l.classList.remove("active"));
+      link.classList.add("active");
+    });
+  });
+
   // ===== Image Slider Logic =====
-  // حط هنا أسماء الصور اللي عندك (1–12 مثلاً)
-  // لو مش هتستخدم رقم معين امسحه من اللستة
+  // سمي الصور: 1.png … 12.png في نفس الفولدر
   const imageFiles = [
-    "1.png",
-    "2.png",
-    "3.png",
-    "4.png",
-    "5.png",
-    "6.png",
-    "7.png",
-  "8.png",
-  "9.png",
-  "10.png",
-  "11.png",
-  "12.png",
-    // ممكن تكمل: "7.png", "8.png", ... لحد 12
+    "1.png","2.png","3.png","4.png","5.png","6.png",
+    "7.png","8.png","9.png","10.png","11.png","12.png"
   ];
 
   let currentIndex = 0;
   const sliderImage = document.getElementById("slider-image");
   const sliderCounter = document.getElementById("slider-counter");
   const sliderDotsContainer = document.getElementById("slider-dots");
+  const lightbox = document.getElementById("lightbox");
+  const lightboxImg = document.getElementById("lightbox-img");
 
   // Create dots
   imageFiles.forEach((_, idx) => {
@@ -428,10 +755,11 @@
 
     sliderCounter.textContent = (currentIndex + 1) + " / " + imageFiles.length;
 
-    // update dots
     Array.from(sliderDotsContainer.children).forEach((dot, idx) => {
       dot.classList.toggle("active", idx === currentIndex);
     });
+
+    lightboxImg.src = imageFiles[currentIndex];
   }
 
   function nextImage() {
@@ -449,10 +777,28 @@
     updateSlider();
   }
 
-  // Auto-slide every 5 seconds (اختياري)
-  setInterval(nextImage, 5000);
+  // Auto-slide every 6 seconds (اختياري)
+  setInterval(nextImage, 6000);
+
+  // lightbox
+  function openLightbox() {
+    lightbox.classList.add("active");
+  }
+
+  function closeLightbox() {
+    lightbox.classList.remove("active");
+  }
+
+  // كليك على الصورة نفسها يفتح الليت بوكس
+  sliderImage.addEventListener("click", openLightbox);
+
+  // كليك برا الصورة يقفل الليت بوكس
+  lightbox.addEventListener("click", (e) => {
+    if (e.target === lightbox) {
+      closeLightbox();
+    }
+  });
 </script>
 
 </body>
 </html>
-

@@ -2,842 +2,291 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>PopCat Clicker - Official Website</title>
+  <title>PopCat Clicker - Official APK Download</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <!-- Favicon -->
   <link rel="icon" type="image/png" href="icon.png" />
 
-  <!-- Google Font -->
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap">
-
-  <style>
-nav a.external-link {
-  display: inline-flex;
-  align-items: center;
-  gap: 4px;
-}
-
-nav a .ext {
-  font-size: 0.75rem;
-  opacity: 0.7;
-}
-    :root {
-      --bg: #050011;
-      --card: #0d0720;
-      --accent1: #ff00cc;
-      --accent2: #7f5dff;
-      --accent3: #00f5ff;
-      --accent4: #ffc94b;
-      --text-main: #ffffff;
-      --text-muted: #b0a4ff;
-      --border-radius: 18px;
-      --shadow-neon: 0 0 25px rgba(255, 0, 204, 0.5),
-                     0 0 35px rgba(127, 93, 255, 0.45);
-    }
-
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    body {
-      font-family: "Poppins", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
-        sans-serif;
-      background: radial-gradient(circle at top, #1a0b3a 0, #050011 45%, #020006 100%);
-      color: var(--text-main);
-      min-height: 100vh;
-    }
-
-    a {
-      color: var(--accent3);
-      text-decoration: none;
-    }
-
-    a:hover {
-      text-decoration: underline;
-    }
-
-    /* ===== Header / Navbar ===== */
-    header {
-      position: sticky;
-      top: 0;
-      z-index: 20;
-      background:
-        linear-gradient(90deg, rgba(255, 0, 204, 0.6), rgba(0, 245, 255, 0.4)),
-        rgba(5, 0, 25, 0.92);
-      backdrop-filter: blur(14px);
-      box-shadow: var(--shadow-neon);
-    }
-
-    .nav-inner {
-      max-width: 1150px;
-      margin: 0 auto;
-      padding: 10px 16px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 14px;
-    }
-
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-
-    .brand-icon {
-      width: 38px;
-      height: 38px;
-      border-radius: 14px;
-      overflow: hidden;
-      background: radial-gradient(circle at 30% 20%, #ffffff, #ffe6ff 35%, #ff00cc 80%);
-      box-shadow: 0 0 18px rgba(255, 0, 204, 0.9);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .brand-icon img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-
-    .brand-text-main {
-      font-size: 1.1rem;
-      font-weight: 700;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-    }
-
-    .brand-text-sub {
-      font-size: 0.78rem;
-      color: var(--text-muted);
-    }
-
-    nav {
-      display: none;
-    }
-nav a.external-link {
-  display: inline-flex;
-  align-items: center;
-  gap: 4px;
-}
-
-.ext-icon {
-  display: inline-flex;
-}
-
-.ext-icon svg {
-  width: 11px;
-  height: 11px;
-  stroke: currentColor;
-  fill: none;
-  stroke-width: 1.7;
-}
-
-    @media (min-width: 780px) {
-      nav {
-        display: flex;
-        gap: 10px;
-        font-size: 0.85rem;
-      }
-
-      nav a {
-        padding: 6px 12px;
-        border-radius: 999px;
-        border: 1px solid transparent;
-        color: var(--text-muted);
-        cursor: pointer;
-        transition: background 0.2s, border-color 0.2s, color 0.2s;
-      }
-
-      nav a:hover {
-        border-color: rgba(255, 255, 255, 0.35);
-        color: #ffffff;
-        background: rgba(7, 2, 40, 0.9);
-      }
-
-      nav a.active {
-        border-color: rgba(255, 255, 255, 0.9);
-        color: #ffffff;
-        background: rgba(2, 0, 18, 0.95);
-      }
-    }
-
-    /* ===== Global Layout ===== */
-    .page-wrapper {
-      max-width: 1150px;
-      margin: 0 auto;
-      padding: 20px 16px 40px;
-    }
-
-    .section-card {
-      background: radial-gradient(circle at top left, #25124e, #0a051a);
-      border-radius: var(--border-radius);
-      border: 1px solid rgba(255, 255, 255, 0.05);
-      box-shadow: var(--shadow-neon);
-      padding: 20px 18px;
-      margin-bottom: 22px;
-      position: relative;
-      overflow: hidden;
-      scroll-margin-top: 90px;
-    }
-
-    .section-card::before {
-      content: "";
-      position: absolute;
-      inset: -40%;
-      background:
-        radial-gradient(circle at 10% 0, rgba(255, 0, 204, 0.16), transparent 55%),
-        radial-gradient(circle at 90% 100%, rgba(0, 245, 255, 0.15), transparent 55%);
-      opacity: 0.8;
-      pointer-events: none;
-    }
-
-    .section-inner {
-      position: relative;
-      z-index: 1;
-    }
-
-    h1, h2, h3 {
-      font-weight: 700;
-    }
-
-    h2 {
-      font-size: 1.35rem;
-      margin-bottom: 10px;
-      color: #ffe6ff;
-      text-shadow: 0 0 10px rgba(255, 0, 204, 0.4);
-    }
-
-    h3 {
-      font-size: 1rem;
-      margin-bottom: 6px;
-      color: #ffdfff;
-    }
-
-    p {
-      font-size: 0.97rem;
-      margin-bottom: 8px;
-      color: #e6ddff;
-    }
-
-    .highlight {
-      color: var(--accent3);
-      font-weight: 600;
-    }
-
-    ul {
-      list-style: none;
-      margin-top: 8px;
-      margin-bottom: 4px;
-    }
-
-    ul li {
-      margin-bottom: 4px;
-      font-size: 0.95rem;
-      color: var(--text-muted);
-    }
-
-    ul li::before {
-      content: "✦ ";
-      color: var(--accent3);
-    }
-
-    /* ===== Hero / Banner ===== */
-    .hero {
-      display: grid;
-      grid-template-columns: 1.2fr;
-      gap: 16px;
-      align-items: center;
-    }
-
-    @media (min-width: 900px) {
-      .hero {
-        grid-template-columns: 1.2fr 1fr;
-      }
-    }
-
-    .hero-text-title {
-      font-size: 2.1rem;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      text-shadow:
-        0 0 12px rgba(255, 255, 255, 0.6),
-        0 0 24px rgba(255, 0, 204, 0.9);
-    }
-
-    .hero-text-sub {
-      margin-top: 10px;
-      font-size: 1rem;
-      color: var(--text-muted);
-    }
-
-    .hero-badges {
-      margin-top: 12px;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 6px;
-    }
-
-    .hero-badge {
-      font-size: 0.78rem;
-      padding: 4px 10px;
-      border-radius: 999px;
-      background: rgba(5, 0, 30, 0.8);
-      border: 1px solid rgba(255, 255, 255, 0.22);
-      color: var(--accent4);
-    }
-
-    .hero-banner {
-      position: relative;
-      border-radius: 20px;
-      overflow: hidden;
-      border: 1px solid rgba(255, 255, 255, 0.15);
-      background: radial-gradient(circle at top, #2a1460, #060012);
-      box-shadow: var(--shadow-neon);
-      min-height: 220px;
-    }
-
-    .hero-banner img {
-      width: 100%;
-      height: 100%;
-      max-height: 320px;
-      object-fit: cover;
-      display: block;
-    }
-
-    .hero-banner-note {
-      position: absolute;
-      bottom: 8px;
-      right: 10px;
-      font-size: 0.75rem;
-      background: rgba(5, 0, 25, 0.7);
-      padding: 4px 8px;
-      border-radius: 999px;
-      color: var(--text-muted);
-      border: 1px solid rgba(255, 255, 255, 0.25);
-    }
-
-    /* ===== Media + Gallery Section ===== */
-    .media-layout {
-      display: flex;
-      flex-direction: column;
-      gap: 18px;
-    }
-
-    @media (min-width: 900px) {
-      .media-layout {
-        flex-direction: row;
-      }
-    }
-
-    .card-block {
-      flex: 1;
-      background: rgba(4, 0, 25, 0.7);
-      border-radius: var(--border-radius);
-      border: 1px solid rgba(255, 255, 255, 0.12);
-      padding: 14px;
-      box-shadow: 0 0 25px rgba(0, 0, 0, 0.6);
-      backdrop-filter: blur(10px);
-    }
-
-    .card-title {
-      font-size: 1rem;
-      margin-bottom: 8px;
-      color: #ffddff;
-      font-weight: 600;
-    }
-
-    /* ===== YouTube Embed ===== */
-    .video-wrapper {
-      position: relative;
-      width: 100%;
-      padding-top: 56.25%; /* 16:9 */
-      border-radius: 14px;
-      overflow: hidden;
-      box-shadow: var(--shadow-neon);
-      border: 1px solid rgba(255, 255, 255, 0.16);
-      background: #000;
-    }
-
-    .video-wrapper iframe {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      border: 0;
-    }
-
-    .yt-button {
-      margin-top: 10px;
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      padding: 8px 14px;
-      border-radius: 999px;
-      border: 1px solid rgba(255, 255, 255, 0.35);
-      background: linear-gradient(90deg, rgba(255, 0, 102, 0.7), rgba(127, 93, 255, 0.7));
-      color: #fff;
-      font-size: 0.9rem;
-      text-decoration: none;
-      box-shadow: 0 0 15px rgba(255, 0, 102, 0.7);
-    }
-
-    .yt-button span {
-      font-size: 1.1rem;
-    }
-
-    .yt-button:hover {
-      filter: brightness(1.06);
-    }
-
-    /* ===== iPhone Mockup Slider ===== */
-    .slider-wrapper {
-      position: relative;
-      border-radius: 24px;
-      padding: 18px 18px 22px;
-      background: radial-gradient(circle at top, #1c0d3f, #060013);
-      box-shadow: var(--shadow-neon);
-    }
-
-    /* phone frame */
-    .phone-frame {
-      position: relative;
-      margin: 0 auto;
-      width: 100%;
-      max-width: 260px;
-      aspect-ratio: 9 / 19;
-      border-radius: 38px;
-      padding: 14px 10px;
-      background: radial-gradient(circle at 20% 0, #ffffff, #999, #111);
-      box-shadow:
-        0 0 0 3px #111,
-        0 0 0 7px #444,
-        0 0 25px rgba(0, 0, 0, 0.9);
-    }
-
-    .phone-screen {
-      position: relative;
-      width: 100%;
-      height: 100%;
-      border-radius: 28px;
-      overflow: hidden;
-      background: #000;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    /* notch */
-    .phone-notch {
-      position: absolute;
-      top: 6px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 40%;
-      height: 12px;
-      border-radius: 0 0 10px 10px;
-      background: #000;
-      z-index: 2;
-    }
-
-    .slider-image {
-      display: block;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      transition: opacity 0.3s ease, transform 0.35s ease;
-    }
-
-    .slider-nav-btn {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      width: 34px;
-      height: 34px;
-      border-radius: 50%;
-      border: 1px solid rgba(255, 255, 255, 0.7);
-      background: radial-gradient(circle at 30% 30%, #ffffff, #ff00cc);
-      color: #200226;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
-      box-shadow: 0 0 15px rgba(255, 0, 204, 0.7);
-      user-select: none;
-    }
-
-    .slider-nav-btn:hover {
-      transform: translateY(-50%) scale(1.06);
-    }
-
-    .slider-nav-btn.left {
-      left: 12px;
-    }
-
-    .slider-nav-btn.right {
-      right: 12px;
-    }
-
-    .slider-dots {
-      margin-top: 10px;
-      display: flex;
-      justify-content: center;
-      gap: 6px;
-    }
-
-    .slider-dot {
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      background: rgba(255, 255, 255, 0.25);
-      box-shadow: 0 0 6px rgba(0, 0, 0, 0.4);
-    }
-
-    .slider-dot.active {
-      background: #00f5ff;
-      box-shadow: 0 0 12px rgba(0, 245, 255, 0.9);
-    }
-
-    .slider-counter {
-      margin-top: 6px;
-      font-size: 0.78rem;
-      text-align: center;
-      color: #e6ddff;
-    }
-
-    .slider-toolbar {
-      margin-top: 8px;
-      display: flex;
-      justify-content: center;
-      gap: 8px;
-      font-size: 0.78rem;
-    }
-
-    .btn-small {
-      padding: 4px 10px;
-      border-radius: 999px;
-      border: 1px solid rgba(255, 255, 255, 0.35);
-      background: rgba(5, 0, 25, 0.9);
-      color: #fff;
-      cursor: pointer;
-    }
-
-    .btn-small:hover {
-      background: rgba(15, 0, 40, 1);
-    }
-
-    /* ===== Lightbox (full-screen image) ===== */
-    .lightbox-overlay {
-      position: fixed;
-      inset: 0;
-      background: rgba(0, 0, 0, 0.85);
-      display: none;
-      align-items: center;
-      justify-content: center;
-      z-index: 40;
-    }
-
-    .lightbox-overlay.active {
-      display: flex;
-    }
-
-    .lightbox-img {
-      max-width: 96vw;
-      max-height: 96vh;
-      border-radius: 16px;
-      box-shadow: 0 0 30px rgba(0, 0, 0, 0.9);
-    }
-
-    .lightbox-close {
-      position: fixed;
-      top: 14px;
-      right: 16px;
-      border: none;
-      background: rgba(0, 0, 0, 0.7);
-      color: #fff;
-      font-size: 1.6rem;
-      padding: 4px 10px;
-      border-radius: 999px;
-      cursor: pointer;
-    }
-
-    .lightbox-close:hover {
-      background: rgba(30, 30, 30, 0.95);
-    }
-
-    /* ===== Footer ===== */
-    footer {
-      margin-top: 26px;
-      padding: 18px 12px 24px;
-      text-align: center;
-      font-size: 0.85rem;
-      color: #b4acd7;
-      background: #05000d;
-      border-top: 1px solid rgba(255, 255, 255, 0.06);
-    }
-  </style>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Oxanium:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="styles.css">
 </head>
-
 <body>
 
-<header>
-  <div class="nav-inner">
-    <div class="brand">
-      <div class="brand-icon">
-        <img src="icon.png" alt="PopCat icon">
-      </div>
-      <div>
-        <div class="brand-text-main">POPCAT CLICKER</div>
-        <div class="brand-text-sub">Cute neon cat clicker game</div>
-      </div>
-    </div>
-<nav>
-  <a href="#hero" class="active">Home</a>
-  <a href="#about">About</a>
-  <a href="#media">Gameplay</a>
-  <a href="#contact">Contact</a>
+  <div class="background-blob top-left"></div>
+  <div class="background-blob bottom-right"></div>
+  <div class="background-gradient-overlay"></div>
 
-  <!-- زر Privacy لينك خارجي + أيقونة SVG -->
-  <a href="https://luceluce141.github.io/popcat-privacy-policy/" target="_blank" class="external-link">
-    Privacy
-    <span class="ext-icon" aria-hidden="true">
-      <svg viewBox="0 0 16 16">
-        <path d="M5 3.5H3.5A1.5 1.5 0 0 0 2 5v7.5A1.5 1.5 0 0 0 3.5 14h7.5A1.5 1.5 0 0 0 12.5 12.5V11" />
-        <path d="M8 8l4.5-4.5M9.5 3.5H12.5V6.5" />
-      </svg>
-    </span>
-  </a>
-</nav>
-
-  </div>
-</header>
-
-<div class="page-wrapper">
-
-  <!-- HERO -->
-  <section class="section-card" id="hero">
-    <div class="section-inner hero">
-      <div>
-        <div class="hero-text-title">PopCat Clicker</div>
-        <p class="hero-text-sub">
-          Tap the yarn ball to collect drops and exchange them for coins in the shop.
-Smooth effects and simple, satisfying clicker gameplay.
-        </p>
-        <div class="hero-badges">
-          <div class="hero-badge">Relaxing Casual</div>
-          <div class="hero-badge">No Login Needed</div>
-          <div class="hero-badge">Kid-Friendly</div>
-          <div class="hero-badge">Offline Gameplay</div>
+  <header>
+    <div class="nav-inner">
+      <div class="brand">
+        <div class="brand-icon">
+          <img src="icon.png" alt="PopCat Clicker icon">
+        </div>
+        <div>
+          <div class="brand-text-main">POPCAT CLICKER</div>
+          <div class="brand-text-sub">Neon Idle Cat Game</div>
         </div>
       </div>
-
-      <div class="hero-banner">
-        <!-- حط هنا البانر بتاعك مثلاً 1200x420 باسم banner.jpg -->
-        <img src="banner.png" alt="PopCat Clicker banner">
-        <div class="hero-banner-note">Game art preview</div>
-      </div>
+      <nav>
+        <a href="#hero" class="active">Home</a>
+        <a href="#download">Download</a>
+        <a href="#media">Gameplay</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+        <a href="https://luceluce141.github.io/popcat-privacy-policy/" target="_blank" class="external-link">
+          Privacy
+          <span class="ext-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                 stroke-linecap="round" stroke-linejoin="round">
+              <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+              <polyline points="15 3 21 3 21 9"></polyline>
+              <line x1="10" y1="14" x2="21" y2="3"></line>
+            </svg>
+          </span>
+        </a>
+      </nav>
     </div>
-  </section>
+  </header>
 
-  <!-- ABOUT -->
-  <section class="section-card" id="about">
-    <div class="section-inner">
-      <h2>About the Game</h2>
-      <p><strong>PopCat Clicker</strong> is a colorful casual game for kids and families.</p>
-      <p>Click the cute cat to make shiny items pop out, collect them, and turn them into coins inside the game!</p>
+  <div class="page-wrapper">
 
-      <h3>Main Features</h3>
-      <ul>
-        <li>Simple and relaxing tap-to-play clicker gameplay</li>
-        <li>Neon cat graphics and juicy particle effects</li>
-        <li>Collect potions, gems, paws, stars and more</li>
-        <li>Exchange items for coins inside the jewellery shop</li>
-        <li>Child-friendly design, no violence or chat</li>
-      </ul>
+    <section class="section-card hero-section" id="hero">
+      <div class="section-inner hero-layout">
 
-      <h3>Privacy & Safety</h3>
-      <p>
-        The game is built with <span class="highlight">privacy first</span>: no accounts, no personal data collection,
-        and only child-appropriate ads. You can read the full privacy policy here:
-        <a href="https://luceluce141.github.io/popcat-privacy-policy/" target="_blank">Privacy Policy</a>.
-      </p>
-    </div>
-  </section>
+        <div class="hero-content">
+          <p class="hero-pill">New • 2025 Release</p>
 
-  <!-- MEDIA: VIDEO + SCREENSHOTS -->
-  <section class="section-card" id="media">
-    <div class="section-inner">
-      <div class="media-layout">
+          <h1 class="hero-title">
+            <span class="highlight-text">PopCat</span> Clicker
+          </h1>
 
-        <!-- Left: YouTube -->
-        <div class="card-block">
-          <div class="card-title">Gameplay Preview</div>
-          <div class="video-wrapper">
-            <iframe
-              src="https://www.youtube.com/embed/bh7faKAeVhY"
-              title="PopCat Clicker Gameplay"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowfullscreen>
-            </iframe>
+          <p class="hero-subtitle">
+            The cutest neon idle clicker on mobile. Tap to earn, unlock glowing cats,
+            and watch your coins explode with every pop.
+          </p>
+
+          <div class="hero-badges">
+            <span class="hero-badge">#Casual</span>
+            <span class="hero-badge">#Free</span>
+            <span class="hero-badge">#Offline</span>
+            <span class="hero-badge">#KidFriendly</span>
           </div>
-          <a class="yt-button"
-             href="https://www.youtube.com/watch?v=bh7faKAeVhY"
-             target="_blank" rel="noopener">
-            <span>▶</span> Watch on YouTube
-          </a>
+
+          <div class="hero-actions">
+            <a class="btn-primary"
+               href="https://apkpure.com/p/com.popmedia.popcatclicker"
+               target="_blank" rel="noopener">
+              🐾 Download APK
+            </a>
+            <a class="btn-ghost"
+               href="#media">
+              ▶ Watch Gameplay
+            </a>
+          </div>
+
+          <p class="hero-note">
+            Official APK mirror • Safe & free to play
+          </p>
         </div>
 
-        <!-- Right: iPhone Mockup Slider -->
-        <div class="card-block">
-          <div class="card-title">Screenshots</div>
+        <div class="hero-visual">
+          <div class="hero-banner-box">
+            <img src="bannar.png" alt="PopCat Banner">
+          </div>
+        </div>
+      </div>
+    </section>
 
-          <div class="slider-wrapper">
-            <div class="phone-frame">
-              <div class="phone-notch"></div>
+    <section class="section-card" id="download">
+      <div class="section-inner download-layout">
+        <div class="download-text">
+          <h2>Download PopCat Clicker APK</h2>
+          <p>
+            Get the latest official build of <strong>PopCat Clicker</strong> directly from APKPure.
+            No accounts, no extra steps – just download, install and start popping.
+          </p>
+
+          <ul class="download-list">
+            <li>✔ Verified & secure APK</li>
+            <li>✔ Optimized for phones & tablets</li>
+            <li>✔ Offline-friendly gameplay</li>
+          </ul>
+
+          <a class="btn-download-big"
+             href="https://apkpure.com/p/com.popmedia.popcatclicker"
+             target="_blank" rel="noopener">
+            🐾 Download from APKPure
+          </a>
+
+          <p class="download-note">
+            On the APKPure page, tap <strong>Download APK</strong>, then open the file on your device to install.
+          </p>
+        </div>
+
+        <div class="download-side">
+          <div class="download-card">
+            <h3>Quick info</h3>
+            <div class="download-meta-row">
+              <span>Platform</span>
+              <span>Android</span>
+            </div>
+            <div class="download-meta-row">
+              <span>Mode</span>
+              <span>Offline / Idle</span>
+            </div>
+            <div class="download-meta-row">
+              <span>Type</span>
+              <span>Free to play</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-card" id="media">
+      <div class="section-inner">
+        <div class="section-header">
+          <h2>Gameplay Preview</h2>
+          <p class="section-sub">
+            See how PopCat Clicker looks and feels before you download.
+          </p>
+        </div>
+
+        <div class="gameplay-layout">
+          <div class="gameplay-phone-wrapper">
+            <div class="phone-mock gameplay-phone">
+              <div class="phone-bezel"></div>
               <div class="phone-screen">
-                <img id="slider-image" class="slider-image" src="1.png" alt="PopCat Clicker screenshot">
+                <img id="gameplay-main" src="1.png" alt="PopCat Clicker screenshot">
               </div>
             </div>
+          </div>
 
-            <div class="slider-nav-btn left" onclick="prevImage()">❮</div>
-            <div class="slider-nav-btn right" onclick="nextImage()">❯</div>
+          <div class="gameplay-side">
+            <div class="thumbs-title-row">
+              <span class="thumbs-title">Screenshots</span>
+              <a class="btn-link-icon" href="#" onclick="openLightbox(0); return false;">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                  <circle cx="8.5" cy="8.5" r="1.5"></circle>
+                  <polyline points="21 15 16 10 5 21"></polyline>
+                </svg>
+                Open full gallery
+              </a>
+            </div>
+            <div class="thumbs-grid" id="gameplay-thumbs">
+              </div>
 
-            <div class="slider-dots" id="slider-dots"></div>
-            <div class="slider-counter" id="slider-counter">1 / 12</div>
-
-            <div class="slider-toolbar">
-              <button class="btn-small" onclick="openLightbox()">
-                🔍 View full image
-              </button>
+            <div class="video-block">
+              <div class="video-label-row">
+                <span class="thumbs-title">Trailer</span>
+                <a class="btn-link-icon" href="https://www.youtube.com/watch?v=bh7faKAeVhY" target="_blank" rel="noopener">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2A38.29 38.29 0 0 0 12 4c-5.18 0-9.45.62-10.6.94a2.78 2.78 0 0 0-1.94 2 29 29 0 0 0 0 11.16 2.78 2.78 0 0 0 1.94 2c1.15.32 5.42.94 10.6.94s9.45-.62 10.6-.94a2.78 2.78 0 0 0 1.94-2c.13-1.8.2-3.8.2-5.58s-.07-3.78-.2-5.58z"></path>
+                    <polygon points="10 15 16 12 10 9 10 15"></polygon>
+                  </svg>
+                  Open on YouTube
+                </a>
+              </div>
+              <div class="video-wrapper">
+                <iframe
+                  src="https://www.youtube.com/embed/bh7faKAeVhY"
+                  title="PopCat Clicker Gameplay"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowfullscreen>
+                </iframe>
+              </div>
             </div>
           </div>
         </div>
 
       </div>
+    </section>
+
+    <section class="section-card" id="about">
+      <div class="section-inner">
+        <h2>About the Game</h2>
+        <p class="section-sub">
+          PopCat Clicker is built as a calm, satisfying idle game with a strong neon identity
+          and zero-stress gameplay.
+        </p>
+
+        <div class="feature-grid">
+          <div class="feature-item">
+            <span class="feature-icon">🐱</span>
+            <h3>Cute neon cats</h3>
+            <p>
+              Unlock glowing kittens, special themed cats and smooth popping animations that fill the screen.
+            </p>
+          </div>
+          <div class="feature-item">
+            <span class="feature-icon">💰</span>
+            <h3>Idle clicker core</h3>
+            <p>
+              Tap to earn, then invest in upgrades and boosts that keep your coins growing even when you relax.
+            </p>
+          </div>
+          <div class="feature-item">
+            <span class="feature-icon">🎁</span>
+            <h3>Rewards & boosts</h3>
+            <p>
+              Optional rewarded ads, daily bonuses and surprise drops for players who want extra progress.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-card" id="contact">
+      <div class="section-inner">
+        <h2>Contact</h2>
+        <p>
+          For publishing offers, feedback or bug reports, feel free to reach out.
+        </p>
+        <p class="contact-detail">
+          <span class="contact-icon">📧</span>
+          <strong>Email:</strong>
+          <a href="mailto:luxelace79@gmail.com">luxelace79@gmail.com</a>
+        </p>
+        <p class="contact-note">
+          Typical response time: within 24 hours.
+        </p>
+      </div>
+    </section>
+
+  </div>
+
+  <footer>
+    <div class="footer-links">
+      <a href="#hero">Home</a>
+      <a href="#download">Download</a>
+      <a href="#media">Gameplay</a>
+      <a href="#about">About</a>
+      <a href="https://luceluce141.github.io/popcat-privacy-policy/" target="_blank">Privacy Policy</a>
     </div>
-  </section>
-
-  <!-- CONTACT -->
-  <section class="section-card" id="contact">
-    <div class="section-inner">
-      <h2>Contact & Support</h2>
-      <p>
-        Do you have feedback, found a bug, or want to talk about publishing?
-        Feel free to reach out:
-      </p>
-      <p>
-        <strong>Email:</strong> <a href="mailto:luxelace79@gmail.com">luxelace79@gmail.com</a>
-      </p>
-      <p>
-        We usually reply as soon as possible and are happy to cooperate with
-        store reviewers and partners.
-      </p>
+    <div class="copyright">
+      © 2025 PopCat Clicker – Official Website. Built by PopMedia Studio.
     </div>
-  </section>
+  </footer>
 
-</div>
+  <div class="lightbox-overlay" id="lightbox">
+    <div class="lightbox-container" onclick="closeLightboxByBg(event)">
+      <img class="lightbox-img" id="lightbox-img" src="1.png" alt="PopCat Clicker full screenshot">
+      <button class="lightbox-close" type="button" onclick="closeLightbox()">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+             stroke-linecap="round" stroke-linejoin="round">
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </button>
+      <button class="lightbox-nav prev" type="button" onclick="prevImage(event)">❮</button>
+      <button class="lightbox-nav next" type="button" onclick="nextImage(event)">❯</button>
+    </div>
+  </div>
 
-<footer>
-  © 2025 PopCat Clicker – All Rights Reserved.
-</footer>
-
-<!-- LIGHTBOX -->
-<div class="lightbox-overlay" id="lightbox">
-  <img class="lightbox-img" id="lightbox-img" src="1.png" alt="PopCat Clicker full screenshot">
-  <button class="lightbox-close" onclick="closeLightbox()">×</button>
-</div>
-
-<script>
-  // ===== Navbar active state =====
-  const navLinks = document.querySelectorAll("nav a");
-  navLinks.forEach(link => {
-    link.addEventListener("click", () => {
-      navLinks.forEach(l => l.classList.remove("active"));
-      link.classList.add("active");
-    });
-  });
-
-  // ===== Image Slider Logic =====
-  // سمي الصور: 1.png … 12.png في نفس الفولدر
-  const imageFiles = [
-    "1.png","2.png","3.png","4.png","5.png","6.png",
-    "7.png","8.png","9.png","10.png","11.png","12.png"
-  ];
-
-  let currentIndex = 0;
-  const sliderImage = document.getElementById("slider-image");
-  const sliderCounter = document.getElementById("slider-counter");
-  const sliderDotsContainer = document.getElementById("slider-dots");
-  const lightbox = document.getElementById("lightbox");
-  const lightboxImg = document.getElementById("lightbox-img");
-
-  // Create dots
-  imageFiles.forEach((_, idx) => {
-    const dot = document.createElement("div");
-    dot.className = "slider-dot" + (idx === 0 ? " active" : "");
-    dot.dataset.index = idx;
-    dot.addEventListener("click", () => goToImage(idx));
-    sliderDotsContainer.appendChild(dot);
-  });
-
-  function updateSlider() {
-    sliderImage.style.opacity = 0;
-    setTimeout(() => {
-      sliderImage.src = imageFiles[currentIndex];
-      sliderImage.style.opacity = 1;
-    }, 150);
-
-    sliderCounter.textContent = (currentIndex + 1) + " / " + imageFiles.length;
-
-    Array.from(sliderDotsContainer.children).forEach((dot, idx) => {
-      dot.classList.toggle("active", idx === currentIndex);
-    });
-
-    lightboxImg.src = imageFiles[currentIndex];
-  }
-
-  function nextImage() {
-    currentIndex = (currentIndex + 1) % imageFiles.length;
-    updateSlider();
-  }
-
-  function prevImage() {
-    currentIndex = (currentIndex - 1 + imageFiles.length) % imageFiles.length;
-    updateSlider();
-  }
-
-  function goToImage(index) {
-    currentIndex = index;
-    updateSlider();
-  }
-
-  // Auto-slide every 6 seconds (اختياري)
-  setInterval(nextImage, 6000);
-
-  // lightbox
-  function openLightbox() {
-    lightbox.classList.add("active");
-  }
-
-  function closeLightbox() {
-    lightbox.classList.remove("active");
-  }
-
-  // كليك على الصورة نفسها يفتح الليت بوكس
-  sliderImage.addEventListener("click", openLightbox);
-
-  // كليك برا الصورة يقفل الليت بوكس
-  lightbox.addEventListener("click", (e) => {
-    if (e.target === lightbox) {
-      closeLightbox();
-    }
-  });
-</script>
-
+  <script src="scripts.js"></script>
 </body>
 </html>
